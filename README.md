@@ -16,7 +16,7 @@ This application simulates forest fires using a backend built with Spring Boot a
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/SauretCyril/myForestSpringFire.git
+   git clone https://github.com/SauretCyril/SpringFire3.git
    cd myForestSpringFire
    ```
 2. Build backend
