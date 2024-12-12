@@ -34,6 +34,20 @@ This application simulates forest fires using a backend built with Spring Boot a
      ```
 ## Running the Application in local mode
 
+1.be careful, you must create a file with json format named "config.json" with is configuration file of forest simulation fire 
+you have tu put it in the 'projet root'\src\main\resources" directory
+
+2.the file format must be :
+{
+    "height": 15,
+    "width": 15,
+    "probability": 0.8,
+    "initialPositions": [
+        [0, 0],
+        [1, 1]
+    ]
+}
+
 ### Backend
 
 1. Navigate to the project root directory.
