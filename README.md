@@ -26,7 +26,7 @@ This application simulates forest fires using a backend built with Spring Boot a
      mvn clean install
     ```
 3.Build frontend
-   - Navigate to the frontend directory: cd myForestSpringFire/frontend
+   - Navigate to the frontend directory: cd myForestSpringFire/my-app
    - Install dependencies:
      ```sh
      cd my-app
