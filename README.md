@@ -25,6 +25,17 @@ This application simulates forest fires using a backend built with Spring Boot a
     ```sh
      mvn clean install
     ```
+    This command will:
+    - Clean the project (delete the target directory)
+    - Compile the source code
+    - Run tests
+    - Package the application into a JAR file
+    - Install the package into your local Maven repository
+
+    Troubleshooting:
+    - If you encounter Java version issues, ensure that JAVA_HOME points to Java 11+
+    - For dependency issues, try `mvn dependency:resolve` to diagnose them
+    - Use `mvn -X clean install` for detailed debug information
 3.Build frontend
    - Navigate to the frontend directory: cd myForestSpringFire/my-app
    - Install dependencies:
@@ -32,6 +43,78 @@ This application simulates forest fires using a backend built with Spring Boot a
      cd my-app
      npm install
      ```
+
+## Troubleshooting
+
+### Maven Command Not Found Error
+
+Si vous rencontrez l'erreur: `mvn : Le terme «mvn» n'est pas reconnu comme nom d'applet de commande...`
+
+#### Solution 1: Installer Maven
+1. Téléchargez Maven depuis [https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi)
+   - Version recommandée: Maven 3.8.8 ou 3.9.6 pour Java 11+
+   - Téléchargez le fichier "Binary zip archive" (apache-maven-3.9.6-bin.zip)
+2. Extrayez l'archive dans un dossier de votre choix (ex: `C:\Program Files\Apache\maven`)
+3. Ajoutez Maven au PATH système:
+   - Ouvrez les Paramètres système > Variables d'environnement
+   - Modifiez la variable PATH et ajoutez le chemin du dossier bin de Maven (ex: `C:\Program Files\Apache\maven\bin`)
+   - Redémarrez votre terminal
+ 
+#### Solution 2: Utiliser le Maven Wrapper
+Si le projet contient déjà le Maven Wrapper, utilisez:
+```sh
+./mvnw clean install  # Pour Linux/macOS
+# ou
+mvnw clean install    # Pour Windows sans le ./
+```
+
+#### Solution 3: Utiliser le chemin complet
+```sh
+"C:\chemin\vers\maven\bin\mvn" clean install
+```
+
+#### Vérification
+Après installation, vérifiez avec:
+```sh
+mvn -v
+```
+
+### Java Environment Variable Issues
+
+Si vous rencontrez l'erreur: `The JAVA_HOME environment variable is not defined correctly`, même si vous pensez que JAVA_HOME est défini:
+
+#### Solution: Vérification et correction de JAVA_HOME
+
+1. **Vérifiez la valeur actuelle de JAVA_HOME**:
+   ```sh
+   echo %JAVA_HOME%  # Windows cmd
+   $env:JAVA_HOME    # PowerShell
+   ```
+
+2. **Assurez-vous que JAVA_HOME pointe vers le répertoire d'installation de JDK** (pas jusqu'au dossier bin):
+   - Format correct: `C:\Program Files\Java\jdk-11.0.12` 
+   - Format incorrect: `C:\Program Files\Java\jdk-11.0.12\bin`
+
+3. **Redéfinissez JAVA_HOME**:
+   - Ouvrez Paramètres système > Variables d'environnement
+   - Si JAVA_HOME existe, modifiez sa valeur; sinon, créez-la
+   - Utilisez le chemin complet vers votre installation JDK
+   
+4. **Assurez-vous que %JAVA_HOME%\bin est dans votre PATH**:
+   - Vérifiez que la variable PATH contient `%JAVA_HOME%\bin` (Windows)
+   
+5. **Vérifiez l'installation**:
+   ```sh
+   java -version
+   javac -version
+   ```
+   Version ok : 
+   -java 11 
+   -spring boot 2.7.14
+6. **Redémarrez votre terminal** après toute modification des variables d'environnement.
+
+**Note**: Pour un même terminal déjà ouvert, les modifications des variables d'environnement ne sont pas prises en compte automatiquement. Vous devez fermer et rouvrir le terminal.
+
 ## Running the Application in local mode
 
 1.be careful, you must create a file with json format named "config.json" with is configuration file of forest simulation fire 
