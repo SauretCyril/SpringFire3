@@ -263,3 +263,33 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## GitHub Repository Information
+
+### Comment identifier le nom du projet GitHub
+
+Il existe une différence entre le nom du dépôt GitHub et le nom du dossier local après clonage:
+
+1. **Le nom du dépôt GitHub**: "SpringFire3"
+   - Visible dans l'URL: https://github.com/SauretCyril/SpringFire3.git
+   - C'est le nom officiel du projet sur GitHub
+
+2. **Le dossier local après clonage**: "myForestSpringFire" 
+   - C'est le dossier dans lequel vous travaillez localement
+
+Pour vérifier ces informations:
+
+- **Depuis votre clone local**:
+  ```sh
+  git remote -v
+  ```
+  Cette commande affichera l'URL du dépôt distant, confirmant le nom GitHub.
+
+- **Depuis GitHub**:
+  - Visitez https://github.com/SauretCyril/SpringFire3
+  - Le nom du projet est affiché en haut de la page
+
+**Note**: Lors du clonage, vous pouvez spécifier un nom de dossier différent:
+```sh
+git clone https://github.com/SauretCyril/SpringFire3.git nom_de_dossier_personnalisé
+```

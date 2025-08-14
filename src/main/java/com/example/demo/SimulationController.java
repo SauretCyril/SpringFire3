@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/simulation")
+@RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000")
 public class SimulationController {
     private ForestFireSimulation simulation;
@@ -42,5 +42,10 @@ public class SimulationController {
     public ResponseEntity<int[][]> stepSimulation() {
         simulation.step();
         return new ResponseEntity<>(simulation.getGrid(), HttpStatus.OK);
+    }
+
+    @GetMapping("/hello")
+    public ResponseEntity<String> hello() {
+        return new ResponseEntity<>("Hello, World!", HttpStatus.OK);
     }
 }
